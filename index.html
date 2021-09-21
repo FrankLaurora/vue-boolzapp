@@ -94,7 +94,7 @@
                 <!-- message sending bar -->
                 <div class="user_box ms_bg_gray new_message">
                     <div class="icons_box ms_text_gray_700"><i class="far fa-smile"></i></div>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage()">
                     <div class="icons_box ms_text_gray_700"><i class="fas fa-microphone"></i></div>
                 </div>
                 <!-- /message sending bar -->

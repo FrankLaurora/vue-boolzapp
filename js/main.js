@@ -85,7 +85,9 @@ const app = new Vue({
             },
         ],
         
-        selectedContact: 0
+        selectedContact: 0,
+
+        newMessage: ''
     },
 
     methods: {
@@ -96,6 +98,28 @@ const app = new Vue({
         getSelected: function(index) {
             this.selectedContact = index;
             return this.selectedContact;
+        },
+
+        sendMessage: function() {
+            let date = new Date();
+            // let day = date.getDate();
+            // let month = date.getMonth();
+            // let year = date.getFullYear();
+            // let hour = date.getHours();
+            // let minutes = date.getMinutes();
+            // let seconds = date.getSeconds();
+            let currentDate = date.toLocaleDateString('it-IT');
+            let time = date.toLocaleTimeString('it-IT');
+
+            this.contacts[this.selectedContact].messages.push({
+                // date: `${day}/${month}/${year} ${hour}:${minutes}:${seconds}`,
+                date: `${currentDate} ${time}`,
+                message: this.newMessage,
+                status: 'sent'
+            })
+
+            return this.newMessage = "";
         }
     }
 })
+
