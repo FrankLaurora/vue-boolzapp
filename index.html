@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- /css -->
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /fontawesome -->
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- /google fonts -->
+    <title>Vue Boolzapp</title>
+</head>
+<body>
+    <div id="root">
+        <!-- flex container to place the two main sections side by side -->
+        <main class="container debug">
+            <!-- left section -->
+            <div class="left_nav debug">
+                <!-- user box with avatar, name and icons -->
+                <div class="user_box ms_bg_gray">
+                    <img class="user_avatar" src="img/avatar_io.jpg" alt="user image">
+                    <h4>Nome Utente</h4>
+                    <div class="icons_box ms_text_gray">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <!-- /user box with avatar, name and icons -->
+                <!-- notification box -->
+                <div class="multi_box ms_bg_blue_200">
+                    <div class="notification_logo ms_bg_white ms_text_blue_200">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div class="text_box">
+                        <h4>Ricevi notifiche di nuovi messaggi</h4>
+                        <a href="#" class="ms_text_gray_500">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+                <!-- /notification box -->
+                <!-- search bar -->
+                <div class="search_box ms_bg_white_500">
+                    <div class="search_container debug">
+                        <button class="ms_bg_white ms_text_gray"><i class="fas fa-search"></i></button>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <!-- /search bar -->
+
+            </div>
+            <!-- /left section -->
+            <!-- right section -->
+            <div class="right_port debug">
+
+            </div>
+            <!-- /right section -->
+        </main>
+        <!-- /flex container to place the two main sections side by side -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* common */
+body {
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to bottom, #009688 15%, #dcdbd1 15% 100%);
+}
+
+#root {
+    height: 100%;
+    padding: 24px 0;
+}
+
+.avatar {
+    width: 60px;
+    border-radius: 50%;
+}
+
+.debug {
+    border: 1px solid navy;
+}
+
+/* palette */
+.ms_bg_blue_200 {
+    background-color: #8edafc;
+}
+
+.ms_bg_gray {
+    background-color: #eaeaea;
+}
+
+.ms_bg_white {
+    background-color: #fff;
+}
+
+.ms_bg_white_500 {
+    background-color: #fafafa;
+}
+
+.ms_text_blue_200 {
+    color: #8edafc;
+}
+
+.ms_text_gray {
+    color: #b1b1b1;
+}
+
+.ms_text_gray_500 {
+    color: #4f7485;
+}
+
+/* main */
+.container {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.left_nav {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.right_port {
+    width: 65%;
+}
+
+/* left navigation column */
+.multi_box {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    height: 80px;
+}
+    /* user row */
+        .user_box {
+            display: flex;
+            align-items: center;
+            height: 70px;
+            padding: 0px 10px ;
+        }
+
+        .user_avatar {
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .user_box h4 {
+            flex-grow: 1;
+        }
+
+        .icons_box i {
+            margin: 5px;
+            font-size: 1rem;
+        }
+    /* notification */
+        .notification_logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            vertical-align: middle;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+    /* search bar */
+    .search_box {
+        padding: 5px 10px;
+    }
+    
+    .search_container {
+        display: flex;
+        border: 1px solid #f5f5f5;
+    }
+
+    .search_container button, .search_container input {
+        border: none;
+    }
+
+    .search_container button {
+        border-right: 1px solid #f5f5f5;
+        padding: 10px 30px;
+    }
+
+    .search_container input {
+        flex-grow: 1;
+        padding: 10px;
+    }
