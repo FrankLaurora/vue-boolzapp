@@ -35,6 +35,10 @@ body {
     background-color: #eaeaea;
 }
 
+.ms_bg_gray_500 {
+    background-color: #e9ebeb;
+}
+
 .ms_bg_white {
     background-color: #fff;
 }
@@ -167,6 +171,7 @@ body {
         align-self: flex-start;
         margin: 10px 20px;
     }
+
 /* right section */
 .right_port {
     display: flex;
@@ -190,7 +195,6 @@ body {
 
     .message {
         position: relative;
-        background-color: #8edafc;
         padding: 15px;
         border-radius: 10px;
         margin: 10px 0px;

@@ -41,13 +41,13 @@
                     </div>
                     <div class="text_box">
                         <h4>Ricevi notifiche di nuovi messaggi</h4>
-                        <a href="#" class="ms_text_gray_500">Attiva notifiche desktop</a>
+                        <a href="#" class="ms_text_gray_500 small_text">Attiva notifiche desktop</a>
                     </div>
                 </div>
                 <!-- /notification box -->
                 <!-- search bar -->
                 <div class="search_box ms_bg_white_500">
-                    <div class="search_container debug">
+                    <div class="search_container">
                         <button class="ms_bg_white ms_text_gray"><i class="fas fa-search"></i></button>
                         <input type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
@@ -55,7 +55,7 @@
                 <!-- /search bar -->
                 <!-- contact list -->
                 <div class="contacts_list ms_bg_white">
-                    <div class="multi_box" v-for="(contact, index) in contacts" :key="index">
+                    <div class="multi_box" v-for="(contact, index) in contacts" :key="index" @click="getSelected(index)" :class="(index == selectedContact) ? 'ms_bg_gray_500' : ''">
                     <img class="avatar" :src="getAvatar(index)" :alt="contact.name">
                     <h4 class="contact_name">{{contact.name}}</h4>
                     </div>
@@ -67,10 +67,10 @@
             <div class="right_port">
                 <!-- contact info box -->
                 <div class="user_box ms_bg_gray">
-                    <img class="user_avatar" src="img/avatar_1.jpg" alt="user image">
+                    <img class="user_avatar" :src="getAvatar(selectedContact)" :alt="contacts[selectedContact].name">
                     <div class="text_box">
-                        <h4>Michele</h4>
-                        <p class="ms_text_gray">Ultimo accesso oggi alle</p>
+                        <h4>{{contacts[selectedContact].name}}</h4>
+                        <p class="ms_text_gray small_text">Ultimo accesso oggi alle</p>
                     </div>
                     <div class="icons_box ms_text_gray">
                         <i class="fas fa-search"></i>
@@ -81,7 +81,7 @@
                 <!-- /contact info box -->
                 <!-- chat display -->
                 <div class="chat_container">
-                    <div class="message" v-for="object in contacts[0].messages" :class="object.status">
+                    <div class="message" v-for="object in contacts[selectedContact].messages" :class="object.status">
                         <div class="small_text">
                             {{object.message}}
                         </div>

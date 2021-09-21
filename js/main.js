@@ -84,11 +84,18 @@ const app = new Vue({
                 ],
             },
         ],
+        
+        selectedContact: 0
     },
 
     methods: {
         getAvatar: function(index) {
             return "img/avatar" + this.contacts[index].avatar + ".jpg";
+        },
+
+        getSelected: function(index) {
+            this.selectedContact = index;
+            return this.selectedContact;
         }
     }
 })
