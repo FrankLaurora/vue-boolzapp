@@ -55,6 +55,19 @@ body {
     color: #4f7485;
 }
 
+.ms_text_gray_700 {
+    color: #6b7376;
+}
+
+/* typo */
+.small_text {
+    font-size: 11px;
+}
+
+.smaller_text {
+    font-size: 8px;
+}
+
 /* main */
 .container {
     display: flex;
@@ -99,7 +112,7 @@ body {
 
         .icons_box i {
             margin: 5px;
-            font-size: 1rem;
+            font-size: 1.4rem;
         }
     /* notification */
         .notification_logo {
@@ -122,7 +135,7 @@ body {
         border: 1px solid #f5f5f5;
     }
 
-    .search_container button, .search_container input {
+    .search_container button, .search_container input, .new_message input {
         border: none;
     }
 
@@ -131,7 +144,85 @@ body {
         padding: 10px 30px;
     }
 
-    .search_container input {
+    .search_container input, .right_port .user_box input {
         flex-grow: 1;
         padding: 10px;
+    }
+
+    .search_container input::placeholder {
+        color: #4f7485;
+    }
+
+    /* contacts list */
+    .contacts_list {
+        overflow-y: auto;
+        flex-grow: 1;
+    }
+
+    .contacts_list .multi_box:not(:last-child) {
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .contacts_list .multi_box h4 {
+        align-self: flex-start;
+        margin: 10px 20px;
+    }
+/* right section */
+.right_port {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/mine.jpg');
+}
+    /* right section top  */
+    .right_port .user_box .text_box {
+        margin-left: 15px;
+        flex-grow: 1;
+    }
+
+    /* chat */
+    .chat_container {
+        display: flex;
+        flex-direction: column;
+        padding: 45px 100px;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+
+    .message {
+        position: relative;
+        background-color: #8edafc;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px 0px;
+        width: 40%;
+        min-width: 100px;
+    }
+
+    .message .date {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+
+    .received {
+        background-color: #fff;
+        align-self: flex-start;
+    }
+
+    .sent {
+        background-color: #d5f9ba;
+        align-self: flex-end;
+    }
+
+    /* message sending bar */
+    .new_message input {
+        border-radius: 5px;
+    }
+
+    .new_message .icons_box {
+        padding: 0px 40px;
+    }
+
+    .new_message .icons_box i {
+        margin: 0px;
     }

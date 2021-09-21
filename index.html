@@ -20,9 +20,9 @@
 <body>
     <div id="root">
         <!-- flex container to place the two main sections side by side -->
-        <main class="container debug">
+        <main class="container">
             <!-- left section -->
-            <div class="left_nav debug">
+            <div class="left_nav">
                 <!-- user box with avatar, name and icons -->
                 <div class="user_box ms_bg_gray">
                     <img class="user_avatar" src="img/avatar_io.jpg" alt="user image">
@@ -53,12 +53,51 @@
                     </div>
                 </div>
                 <!-- /search bar -->
-
+                <!-- contact list -->
+                <div class="contacts_list ms_bg_white">
+                    <div class="multi_box" v-for="(contact, index) in contacts" :key="index">
+                    <img class="avatar" :src="getAvatar(index)" :alt="contact.name">
+                    <h4 class="contact_name">{{contact.name}}</h4>
+                    </div>
+                </div>
+                <!-- /contact list -->
             </div>
             <!-- /left section -->
             <!-- right section -->
-            <div class="right_port debug">
-
+            <div class="right_port">
+                <!-- contact info box -->
+                <div class="user_box ms_bg_gray">
+                    <img class="user_avatar" src="img/avatar_1.jpg" alt="user image">
+                    <div class="text_box">
+                        <h4>Michele</h4>
+                        <p class="ms_text_gray">Ultimo accesso oggi alle</p>
+                    </div>
+                    <div class="icons_box ms_text_gray">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <!-- /contact info box -->
+                <!-- chat display -->
+                <div class="chat_container">
+                    <div class="message" v-for="object in contacts[0].messages" :class="object.status">
+                        <div class="small_text">
+                            {{object.message}}
+                        </div>
+                        <div class="date smaller_text ms_text_gray">
+                            {{object.date}}
+                        </div>
+                    </div>
+                </div>
+                <!-- /chat display -->
+                <!-- message sending bar -->
+                <div class="user_box ms_bg_gray new_message">
+                    <div class="icons_box ms_text_gray_700"><i class="far fa-smile"></i></div>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <div class="icons_box ms_text_gray_700"><i class="fas fa-microphone"></i></div>
+                </div>
+                <!-- /message sending bar -->
             </div>
             <!-- /right section -->
         </main>
