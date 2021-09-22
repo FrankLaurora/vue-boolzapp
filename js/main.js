@@ -87,7 +87,9 @@ const app = new Vue({
         
         selectedContact: 0,
 
-        newMessage: ''
+        newMessage: '',
+
+        userSearch: ''
     },
 
     methods: {
@@ -102,24 +104,41 @@ const app = new Vue({
 
         sendMessage: function() {
             let date = new Date();
-            // let day = date.getDate();
-            // let month = date.getMonth();
-            // let year = date.getFullYear();
-            // let hour = date.getHours();
-            // let minutes = date.getMinutes();
-            // let seconds = date.getSeconds();
+
             let currentDate = date.toLocaleDateString('it-IT');
             let time = date.toLocaleTimeString('it-IT');
-
+            
             this.contacts[this.selectedContact].messages.push({
-                // date: `${day}/${month}/${year} ${hour}:${minutes}:${seconds}`,
                 date: `${currentDate} ${time}`,
                 message: this.newMessage,
                 status: 'sent'
             })
-
+            
             return this.newMessage = "";
+        },
+        
+        sendReply: function() {
+            setTimeout(() => {
+                let date = new Date();
+                
+                let currentDate = date.toLocaleDateString('it-IT');
+                let time = date.toLocaleTimeString('it-IT');
+                
+                this.contacts[this.selectedContact].messages.push({
+                    date: `${currentDate} ${time}`,
+                    message: "Ok!",
+                    status: 'received'
+                })
+            }, 1000);   
         }
     }
 })
 
+
+// let day = date.getDate();
+// let month = date.getMonth();
+// let year = date.getFullYear();
+// let hour = date.getHours();
+// let minutes = date.getMinutes();
+// let seconds = date.getSeconds();
+// date: `${day}/${month}/${year} ${hour}:${minutes}:${seconds}`,

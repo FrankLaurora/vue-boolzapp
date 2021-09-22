@@ -49,7 +49,7 @@
                 <div class="search_box ms_bg_white_500">
                     <div class="search_container">
                         <button class="ms_bg_white ms_text_gray"><i class="fas fa-search"></i></button>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="userSearch">
                     </div>
                 </div>
                 <!-- /search bar -->
@@ -66,7 +66,7 @@
             <!-- right section -->
             <div class="right_port">
                 <!-- contact info box -->
-                <div class="user_box ms_bg_gray">
+                <div class="user_box ms_bg_gray active_contact_box">
                     <img class="user_avatar" :src="getAvatar(selectedContact)" :alt="contacts[selectedContact].name">
                     <div class="text_box">
                         <h4>{{contacts[selectedContact].name}}</h4>
@@ -94,7 +94,7 @@
                 <!-- message sending bar -->
                 <div class="user_box ms_bg_gray new_message">
                     <div class="icons_box ms_text_gray_700"><i class="far fa-smile"></i></div>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage()">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage(); sendReply()">
                     <div class="icons_box ms_text_gray_700"><i class="fas fa-microphone"></i></div>
                 </div>
                 <!-- /message sending bar -->
