@@ -49,17 +49,27 @@
                 <div class="search_box ms_bg_white_500">
                     <div class="search_container">
                         <button class="ms_bg_white ms_text_gray"><i class="fas fa-search"></i></button>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="userSearch">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="userSearch" @input="contactSearch()">
                     </div>
                 </div>
                 <!-- /search bar -->
                 <!-- contact list -->
-                <div class="contacts_list ms_bg_white">
+                <!-- complete contact list to show by default -->
+                <div v-if="userSearch == ''" class="contacts_list ms_bg_white">
                     <div class="multi_box" v-for="(contact, index) in contacts" :key="index" @click="getSelected(index)" :class="(index == selectedContact) ? 'ms_bg_gray_500' : ''">
                     <img class="avatar" :src="getAvatar(index)" :alt="contact.name">
                     <h4 class="contact_name">{{contact.name}}</h4>
                     </div>
                 </div>
+                <!-- /complete contact list to show by default -->
+                <!-- list to show upon contact search -->
+                <div v-else class="contacts_list ms_bg_white">
+                    <div class="multi_box" v-for="(element, index) in filteredUser" :key="index" @click="getSelected(element)" :class="(element == selectedContact) ? 'ms_bg_gray_500' : ''">
+                    <img class="avatar" :src="getAvatar(element)" :alt="contacts[element].name">
+                    <h4 class="contact_name">{{contacts[element].name}}</h4>
+                    </div>
+                </div>
+                <!-- /list to show upon contact search -->
                 <!-- /contact list -->
             </div>
             <!-- /left section -->

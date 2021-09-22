@@ -89,7 +89,9 @@ const app = new Vue({
 
         newMessage: '',
 
-        userSearch: ''
+        userSearch: '',
+
+        filteredUser: []
     },
 
     methods: {
@@ -130,6 +132,26 @@ const app = new Vue({
                     status: 'received'
                 })
             }, 1000);   
+        },
+
+        contactSearch: function() {
+            if(this.userSearch != '') {
+                this.filteredUser = [];
+
+                this.contacts.forEach((element, index) => {
+                    let {name} = element;
+
+                    if(name.toLowerCase().includes(this.userSearch.toLowerCase())) {
+                        if(!this.filteredUser.includes(index)){
+                            this.filteredUser.push(index);
+                        };
+                    }
+                });
+            } else if(this.userSearch == '') {
+                this.filteredUser = [];
+            }
+
+            return this.filteredUser;
         }
     }
 })
