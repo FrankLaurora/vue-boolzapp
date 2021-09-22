@@ -89,6 +89,8 @@ const app = new Vue({
 
         newMessage: '',
 
+        lastAccess: '',
+
         userSearch: '',
 
         filteredUser: []
@@ -130,8 +132,21 @@ const app = new Vue({
                     date: `${currentDate} ${time}`,
                     message: "Ok!",
                     status: 'received'
-                })
+                });
+
+                this.getLastAccess(this.contacts[this.selectedContact].messages);
+
             }, 1000);   
+        },
+
+        getLastAccess: function(arr) {
+            arr.forEach(element => {
+                if(element.status == 'received') {
+                    this.lastAccess = element.date;
+                }
+            });
+
+            return this.lastAccess;
         },
 
         contactSearch: function() {

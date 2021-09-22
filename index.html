@@ -56,7 +56,7 @@
                 <!-- contact list -->
                 <!-- complete contact list to show by default -->
                 <div v-if="userSearch == ''" class="contacts_list ms_bg_white">
-                    <div class="multi_box" v-for="(contact, index) in contacts" :key="index" @click="getSelected(index)" :class="(index == selectedContact) ? 'ms_bg_gray_500' : ''">
+                    <div class="multi_box" v-for="(contact, index) in contacts" :key="index" @click="getSelected(index); getLastAccess(contact.messages)" :class="(index == selectedContact) ? 'ms_bg_gray_500' : ''">
                     <img class="avatar" :src="getAvatar(index)" :alt="contact.name">
                     <h4 class="contact_name">{{contact.name}}</h4>
                     </div>
@@ -80,7 +80,7 @@
                     <img class="user_avatar" :src="getAvatar(selectedContact)" :alt="contacts[selectedContact].name">
                     <div class="text_box">
                         <h4>{{contacts[selectedContact].name}}</h4>
-                        <p class="ms_text_gray small_text">Ultimo accesso oggi alle</p>
+                        <p class="ms_text_gray small_text">Ultimo accesso oggi alle {{lastAccess}}</p>
                     </div>
                     <div class="icons_box ms_text_gray">
                         <i class="fas fa-search"></i>
