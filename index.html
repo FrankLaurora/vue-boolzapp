@@ -91,12 +91,16 @@
                 <!-- /contact info box -->
                 <!-- chat display -->
                 <div class="chat_container">
-                    <div class="message" v-for="object in contacts[selectedContact].messages" :class="object.status">
+                    <div class="message" v-for="(object, index) in contacts[selectedContact].messages" :class="object.status" :key="index" @click="showActions(); getClickedIndex(index)">
                         <div class="small_text">
                             {{object.message}}
                         </div>
                         <div class="date smaller_text ms_text_gray">
                             {{object.date}}
+                        </div>
+                        <div v-if="clickedIndex == index" class="message_actions ms_bg_white small_text">
+                            <div>Info messaggio</div>
+                            <div @click="deleteMessage(index)">Cancella messaggio</div>
                         </div>
                     </div>
                 </div>

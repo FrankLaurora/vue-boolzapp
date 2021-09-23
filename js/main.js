@@ -93,7 +93,11 @@ const app = new Vue({
 
         userSearch: '',
 
-        filteredUser: []
+        filteredUser: [],
+
+        viewActions: false,
+
+        clickedIndex: null
     },
 
     methods: {
@@ -161,7 +165,34 @@ const app = new Vue({
             }
 
             return this.filteredUser;
+        },
+
+        getClickedIndex: function(index) {
+            if(this.clickedIndex == index) {
+                this.clickedIndex = null;
+            } else {
+                this.clickedIndex = index;
+            }
+
+            return this.clickedIndex;
+
+        },
+
+        showActions: function() {
+            if(this.viewActions == '') {
+                this.viewActions = true;
+            } else {
+                this.viewActions = false;
+            }
+            return this.viewActions;
+        },
+
+        deleteMessage: function(index) {
+            let messages = this.contacts[this.selectedContact].messages;
+
+            messages.splice(index, 1);
         }
+
     },
 
     mounted: function() {
