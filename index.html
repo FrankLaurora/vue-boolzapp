@@ -80,7 +80,7 @@
                     <img class="user_avatar" :src="getAvatar(selectedContact)" :alt="contacts[selectedContact].name">
                     <div class="text_box">
                         <h4>{{contacts[selectedContact].name}}</h4>
-                        <p class="ms_text_gray small_text">Ultimo accesso oggi alle {{lastAccess}}</p>
+                        <p class="ms_text_gray small_text">Ultimo accesso: {{lastAccess}}</p>
                     </div>
                     <div class="icons_box ms_text_gray">
                         <i class="fas fa-search"></i>
@@ -115,6 +115,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

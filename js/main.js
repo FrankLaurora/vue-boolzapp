@@ -107,13 +107,10 @@ const app = new Vue({
         },
 
         sendMessage: function() {
-            let date = new Date();
-
-            let currentDate = date.toLocaleDateString('it-IT');
-            let time = date.toLocaleTimeString('it-IT');
+            let date = dayjs().format('DD/MM/YYYY HH:mm:ss');
             
             this.contacts[this.selectedContact].messages.push({
-                date: `${currentDate} ${time}`,
+                date: date,
                 message: this.newMessage,
                 status: 'sent'
             })
@@ -123,13 +120,10 @@ const app = new Vue({
         
         sendReply: function() {
             setTimeout(() => {
-                let date = new Date();
-                
-                let currentDate = date.toLocaleDateString('it-IT');
-                let time = date.toLocaleTimeString('it-IT');
+                let date = dayjs().format('DD/MM/YYYY HH:mm:ss');
                 
                 this.contacts[this.selectedContact].messages.push({
-                    date: `${currentDate} ${time}`,
+                    date: date,
                     message: "Ok!",
                     status: 'received'
                 });
@@ -168,7 +162,12 @@ const app = new Vue({
 
             return this.filteredUser;
         }
+    },
+
+    mounted: function() {
+        this.getLastAccess(this.contacts[0].messages)
     }
+
 })
 
 
@@ -179,3 +178,21 @@ const app = new Vue({
 // let minutes = date.getMinutes();
 // let seconds = date.getSeconds();
 // date: `${day}/${month}/${year} ${hour}:${minutes}:${seconds}`,
+// console.log(dayjs());
+
+// let obj = {
+//     date: '10/01/2020 15:50:00',
+//     message: 'Si, ma preferirei andare al cinema',
+//     status: 'received'
+// }
+// console.log(obj.date);
+
+// console.log(dayjs(obj.date));
+
+// let time = new Date();
+
+// console.log(dayjs(time));
+
+// console.log(time.toDateString());
+
+// console.log(dayjs(obj.date).format('DD/MM/YYYY [alle] HH:mm:ss'));
