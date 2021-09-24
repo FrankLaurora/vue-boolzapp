@@ -90,7 +90,7 @@
                 </div>
                 <!-- /contact info box -->
                 <!-- chat display -->
-                <div class="chat_container">
+                <div class="chat_container" v-chat-scroll="{smooth: true, notSmoothOnInit: true}">
                     <div class="message" v-for="(object, index) in contacts[selectedContact].messages" :class="object.status" :key="index" @click="showActions(); getClickedIndex(index)">
                         <div class="small_text">
                             {{object.message}}
@@ -119,6 +119,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-chat-scroll/dist/vue-chat-scroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/main.js"></script>
 </body>

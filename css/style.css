@@ -26,6 +26,14 @@ body {
     border: 1px solid navy;
 }
 
+input {
+    outline: none;
+}
+
+.icons_box i:hover, .contacts_list .multi_box:hover, .notification_logo:hover {
+    cursor: pointer;
+}
+
 /* palette */
 .ms_bg_blue_200 {
     background-color: #8edafc;
@@ -203,8 +211,9 @@ body {
         padding: 15px;
         border-radius: 10px;
         margin: 10px 0px;
-        width: 40%;
-        min-width: 100px;
+        max-width: 70%;
+        min-width: 200px;
+        word-break: break-all;
     }
 
     .message .date {
@@ -231,8 +240,14 @@ body {
         z-index: 1;
         box-shadow: 0px 0px 20px #797979;
         border-radius: 5px;
-        width: 65%;
+        width: 120px;
         text-align: center;
+    }
+
+    .message_actions div:hover {
+        color: #009687;
+        font-weight: 600;
+        cursor: pointer;
     }
 
     .message_actions div {

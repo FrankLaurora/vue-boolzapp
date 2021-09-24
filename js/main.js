@@ -107,6 +107,7 @@ const app = new Vue({
 
         getSelected: function(index) {
             this.selectedContact = index;
+            this.clickedIndex = null;
             return this.selectedContact;
         },
 
@@ -196,7 +197,7 @@ const app = new Vue({
     },
 
     mounted: function() {
-        this.getLastAccess(this.contacts[0].messages)
+        this.getLastAccess(this.contacts[this.selectedContact].messages)
     }
 
 })
